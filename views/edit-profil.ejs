@@ -1,0 +1,66 @@
+<nav>
+  <div class="right">
+    <a href="/logout"><i class="bi bi-power"></i></a>
+  </label>
+  </div>
+</nav>
+<form action="/edit-profil" class="form-post" enctype="multipart/form-data" method="post">
+  <h5>Edit Profil</h5>
+  <div class="mb-3 con-file">
+    <label for="file-upload" style="border:0;">
+      <% if (admin.avatar) { %>
+        <img src="./img/<%= admin.avatar %>" id="avatar-preview" >
+      <% } else { %>
+        <img src="./img/user.jpg" id="avatar-preview" >
+      <% } %>
+    </label>
+    <span class="con-file">
+     <input onchange="displayFileName()" name="avatar" type="file" id="uploadBtn" >
+     <label for="uploadBtn" id="fileLabel">Choose file</label>
+     <%
+      var fileName = admin.avatar;
+      var result = fileName.substring(fileName.indexOf('-') + 1);
+      %>
+     <input type="text" id="selectedFileName" name="avatar" value="<%= result %>" style="width:200px;">
+    </span>
+</div>
+  <div class="mt-3 con-btn">
+    <a href="/profil" class="btn-cancel">Cancel</a>
+    <button type="submit" class="btn-publish">Save</button>
+  </div>
+</form>
+
+
+<script>
+  function updateFileName(input) {
+      const fileLabel = document.getElementById("fileLabel");
+      const selectedFileName = document.getElementById("selectedFileName");
+  
+      if (input.files.length > 0) {
+          // Update the selected file name
+          selectedFileName.value = input.files[0].name;
+      } else {
+          // Reset the file name if no file is selected
+          selectedFileName.value = "";
+      }
+  }
+
+  //  preview avatar di profil
+  const fileUpAv = document.getElementById('file-upload-avatar');
+    const avatar = document.getElementById('avatar-preview');
+  
+    fileUpAv.addEventListener('change', (event) => {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+  
+      reader.onload = (e) => {
+        avatar.src = e.target.result;
+      };
+  
+      reader.readAsDataURL(file);
+    });
+
+  </script>
+
+
+

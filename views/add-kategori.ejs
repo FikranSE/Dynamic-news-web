@@ -1,0 +1,47 @@
+
+<div class="wrapper-dashboard wrapper-kategori">
+<div class="left ">
+  <div class="container-table-admin table-kategori">
+   <div class="add-kat-wrap">
+    <form action="/add-kategori" method="POST">
+      <div class="input-group">
+        <input  type="text" name="kategori" placeholder="Enter new categori" id="input-field">
+        <button type="submit" class="submit-button"><span>ADD</span></button>
+      </div>
+    </form>
+   </div>
+    <ul>
+      <% let number = 1; %>
+<% kategories.forEach(function(kategori) { %>
+  <li>
+    <div class="col col-1" >
+      <%= number %>
+    </div>
+    <div class="col col-2" ><%= kategori.username %></div>
+    <div class="col col-3" ><%= kategori.kategori %></div>
+    <div class="col col-4" ><%= moment(kategori.created_at).format('LL') %></div>
+    <div class="col col-5" >
+      <a href="/delete/<%= kategori.id_kategori %>" class="btn-view bg-danger" onclick=" return confirmDelete()">Delete</a>
+    </div>
+  </li>
+  <% number++; %>
+<% }); %>
+    </ul>
+  </div>
+</div>
+<div class="right">
+  <h4 class="title mt-4">Categories</h4>
+  <div class="bottom">
+    <% kategories.forEach(function(kategori) { %>
+      <a href=""><%= kategori.kategori %></a>
+    <% }); %>
+</div>
+  
+</div>
+</div>
+
+<script>
+  function confirmDelete() {
+    return confirm("Yakin menghapus?");
+  }
+  </script>

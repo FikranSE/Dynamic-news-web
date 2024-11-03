@@ -1,0 +1,227 @@
+.form-post{
+  width:90%;
+  background-color: #fff;
+  padding:20px;
+  border-radius: 10px;
+  margin:50px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 6px;
+}
+
+.form-post h5{
+  color:#2b2d42;
+  font-size:18px;
+  font-weight: bold;
+  margin-bottom:20px;
+}
+
+.form-post .title{
+  font-size:14px;
+  font-weight: 700;
+}
+
+.con-btn{
+  width:100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.btn-publish{
+  width:130px;
+  height:35px;
+  border:0;
+  border-radius:25px;
+  color:#2b2d42;
+  background-color:#fff;
+  transition:.1s;
+}
+
+.btn-publish:hover{
+  background-color: #2b2d42;
+  color: #fff;
+}
+.btn-cancel{
+  padding:5px 15px;
+  border-radius:25px;
+  text-decoration: none;
+  margin-right:15px;
+  color:#ab1c1c;
+  background-color:#fff;
+  transition:.1s;
+}
+
+.btn-cancel:hover{
+  background-color:#ab1c1c;
+  color:#fff;
+}
+
+
+.form-post input{
+  width: 100%;
+  padding:5px 12px;
+  border:1px solid #2b2d42;
+  border-radius: 25px;
+  outline:0;
+  font-size: 14px;
+  color: #2b2d42;
+  background-color: #fff;
+}
+
+.form-post .title{
+  letter-spacing: 1px;
+}
+
+.form-post input:focus{
+  border:1px solid #2b2d42;
+  background-color: #fff;
+}
+
+.form-post input::placeholder{
+  color:#2b2d42;
+}
+
+.form-post textarea {
+  width: 100%;
+  padding: 5px 12px;
+  border: 1px solid #2b2d42;
+  border-radius: 5px;
+  font-weight: 300;
+  outline: 0;
+  font-size: 14px;
+  color: #2b2d42;
+  background-color: #fff;
+  letter-spacing: 1px;
+}
+
+.form-post textarea:focus {
+  border: 1px solid #2b2d42;
+  background-color: #fff;
+}
+
+.form-post textarea::placeholder {
+  color: #2b2d42;
+}
+
+
+.custom-select {
+  appearance: none;
+  background-color: #fff;
+  border: 1px solid #2a2a2a;
+  border-radius: 25px;
+  padding: 5px 12px;
+  font-size: 16px;
+  width: 100%;
+  color: #2a2a2a;
+  cursor: pointer;
+  outline: none;
+}
+
+.custom-select:focus {
+  border:1px solid #2b2d42;
+  background-color: #fff;
+}
+
+.custom-select option {
+  background-color: #fff;
+  color: #2b2d42;
+}
+
+.custom-select option:hover {
+  background-color: #fff;
+  color: #2b2d42;
+}
+
+.con-file{
+  display: flex;
+  gap:12px;
+  justify-content: start;
+  align-items: center;
+}
+
+.con-file label img{
+  width:120px;
+  border-radius: 50%;
+}
+
+.con-file #selectedFileName{
+  font-size: 12px;
+  color:#2b2d42;
+  width:20%;
+}
+
+input[type="file"]{
+  display:none;
+}
+
+label{
+  display: inline-block;
+  text-transform: uppercase;
+  color: #2a2a2a;
+  text-align: center;
+  padding:8px 20px;
+  font-size: 12px;
+  letter-spacing:1.5px;
+  user-select: none;
+  cursor: pointer;
+  border:1px solid #2a2a2a;
+  border-radius: 25px;
+}
+
+.uploaded-file-wrapper{
+  width:90%;
+  display:flex;
+  align-items:center;
+  justify-content:start;
+  flex-direction: column;
+  gap:15px;
+  background-color: #fff;
+  padding:20px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 6px;
+}
+
+
+.uploaded-file-wrapper .content {
+  padding:5px 25px;
+  width:100%;
+  display: flex;
+  justify-content:start;
+  align-items:center;
+  background-color:#e9f0ff;
+  border-radius:5px;
+  gap:10px;
+}
+
+.uploaded-file-wrapper .content .bi-file-earmark-text{
+  color:#6990f2;
+  font-size:35px;
+}
+
+.uploaded-file-wrapper .content span{
+  display:flex;
+  flex-direction:column;
+}
+
+.uploaded-file-wrapper .content span .filename{
+  width:300px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.uploaded-file-wrapper .content span .size{
+  font-size: 11px;
+}
+
+.uploaded-file-wrapper .content a{
+  font-size: 15px;
+  color:#6990f2;
+  width:100%;
+  text-align: right;
+  font-weight: 500;
+  text-decoration: none;
+  transition:.2s;
+}
+
+.uploaded-file-wrapper .content a:hover{
+  color:#4b66ab;
+}

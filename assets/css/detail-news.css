@@ -1,0 +1,131 @@
+.wrapper-detail-news{
+  width: 100%;
+  display:flex;
+  padding:20px 20px;
+  gap:100px;
+  justify-content: space-between;
+  align-items: start;
+}
+.wrapper-detail-news .left-wrap{
+  width:70%;
+  display:flex;
+  flex-direction: column;
+}
+.wrapper-detail-news .left-wrap .pic{
+  width:100%;
+  height:300px;
+  overflow: hidden;
+  border-radius:10px;
+}
+.wrapper-detail-news .left-wrap .pic img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+}
+.wrapper-detail-news .left-wrap .left{
+  margin-top: 10px;
+  width: 65%;
+  height:900px;
+  display:flex;
+  flex-direction: column;
+  gap:10px;
+}
+
+
+
+.wrapper-detail-news .left-wrap .left .kategori span{
+  font-weight:bold;
+  margin-right:5px;
+}
+
+.wrapper-detail-news .left-wrap .left .title{
+  font-weight:bold;
+  font-size: 30px;
+  font-family: 'DM Serif Display', serif;
+}
+.wrapper-detail-news .left-wrap .left .publisher{
+  font-weight:400;
+  font-size: 12px;
+  margin-top:-15px;
+}
+
+.wrapper-detail-news .left-wrap .left .publisher span:nth-child(1){
+  font-weight:bold;
+}
+
+.wrapper-detail-news .left-wrap .left .publisher span:nth-child(3){
+  font-weight:400;
+  color:#414141;
+}
+.wrapper-detail-news .left-wrap .left .desc{
+  overflow-y: auto;
+  height:100vh;
+}
+.wrapper-detail-news .left-wrap .left .desc::-webkit-scrollbar{
+  width:1px;
+}
+
+
+.wrapper-detail-news .right{
+  width: 35%;
+}
+
+.wrapper-detail-news .right{
+  overflow-y: auto;
+  height: 100vh;
+}
+.wrapper-detail-news .right::-webkit-scrollbar{
+  width:1px;
+}
+
+.wrapper-detail-news .right h4{
+  font-weight:bold;
+  font-size: 30px;
+  font-family: 'DM Serif Display', serif;
+}
+
+.wrapper-detail-news .right .wrap{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+.wrapper-detail-news .right .wrap .col a{
+  transition:.2s;
+}
+.wrapper-detail-news .right .wrap .col a:hover{
+  color:#4c4c4c;
+}
+
+.wrapper-detail-news .right .wrap .col{
+  display:flex;
+  flex-direction:column;
+  gap:13px;
+}
+
+.wrapper-detail-news .right .wrap .col .pic{
+  width:100%;
+  height:150px;
+  border-radius:10px;
+  overflow: hidden;
+}
+
+.wrapper-detail-news .right .wrap .col .pic img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+}
+.wrapper-detail-news .right .wrap .col a{
+  text-decoration:none;
+  font-weight:600;
+  font-size: 20px;
+  font-family: 'DM Serif Display', serif;
+  color:#000;
+}
+
+.wrapper-detail-news .right .wrap .col p{
+  margin-top:-15px;
+  font-family: 'poppins';
+  font-weight:300;
+  font-size: 12px;
+}

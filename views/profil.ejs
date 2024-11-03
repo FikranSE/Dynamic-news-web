@@ -1,0 +1,93 @@
+<div class="top mb-3 mt-4">
+  <form action="/search-admin">
+    <div class="group">
+      <button type="submit" class="btn-search-admin">
+        <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><g><path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path></g></svg>
+      </button>
+      <input placeholder="Search" type="search" class="input">
+    </div>
+  </form>
+</div>
+<div class="wrapper-account">
+  <div class="greet greet-profil">
+    <div class="left">
+      <div class="pic">
+        <% if (admin.avatar) { %>
+          <img src="/img/<%= admin.avatar %>" id="avatar-preview" >
+        <% } else { %>
+          <img src="/img/admin.jpeg" id="avatar-preview" >
+        <% } %>
+      </div>
+    </div>   
+    <div class="right">
+      <h4>Hello <%= admin.username %>.</h4>
+    <span>Let's Get new avatar</span>
+    <form action="/edit-profil" method="post" enctype="multipart/form-data">
+     <input type="file" name="avatar" id="uploadBtn" accept="image/*" onchange="previewAvatar()">
+     <div class="mt-3 gap-2 d-flex">
+      <label for="uploadBtn" class="editBtn">
+        <svg height="1em" viewBox="0 0 512 512">
+          <path
+            d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"
+          ></path>
+        </svg>
+       </label>
+       <button type="submit" class="saveBtn text-white">
+        save
+       </button>
+     </div>
+    </form> 
+    </div>   
+  </div>
+</div>
+<div class="more-project-title text-center my-3 mt-5">
+  <h4>More from <%= admin.username %></h4>
+</div>
+<div class="wrapper-content-admin p-4">
+    <div class="container-table-admin ">
+      <a href="/publish" class="btn-add mb-2">Add article</a>
+      <ul class="list-scroll">
+        <% content.forEach((content)=> { %>
+        <li>
+          <div class="col col-1" >
+            <img src="/img/<%= content.gambar %>">
+          </div>
+          <div class="col col-2 excerpt" ><%= content.title %></div>
+          <div class="col col-3" ><%= content.kategori %></div>
+          <div class="col col-4 " ><%= moment(content.created_at).format('LL') %></div>
+          <div class="col col-5 " >
+            <a href="" class="btn-view">View</a>
+            <a href="/delete-content/<%= content.id_content %>" class="btn-view bg-danger ms-2" onclick=" return confirmDelete()">Delete</a>
+          </div>
+        </li>
+        <% }); %>
+      </ul>
+    </div>
+</div>
+</div>
+
+
+<script>
+  function confirmDelete() {
+    return confirm("Yakin menghapus?");
+  }
+  
+  function previewAvatar() {
+    const uploadBtn = document.getElementById('uploadBtn');
+    const avatarPreview = document.getElementById('avatar-preview');
+
+    if (uploadBtn.files && uploadBtn.files[0]) {
+      const reader = new FileReader();
+
+      reader.onload = function (e) {
+        avatarPreview.src = e.target.result;
+        avatarPreview.style.display = 'block';
+      };
+
+      reader.readAsDataURL(uploadBtn.files[0]);
+    } else {
+      avatarPreview.src = '';
+      avatarPreview.style.display = 'none';
+    }
+  }
+</script>

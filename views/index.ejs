@@ -1,0 +1,117 @@
+<nav>
+  <a href="/" class="brand">NEWS <span>magazine</span> </a>
+  <a href="/">Home</a>
+  <a href="/categories">Categories</a>
+  <a href="/about-us">About Us</a>
+  <form class="form-search-berita" action="/search-berita" method="get">
+    <div class="search">
+      <input name="query" type="text" class="search__input" placeholder="What news today?">
+      <button type="submit" class="search__button">
+          <svg class="search__icon" aria-hidden="true" viewBox="0 0 24 24">
+              <g>
+                  <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
+              </g>
+          </svg>
+      </button>
+  </div>
+  </form>
+</nav> 
+<div class="wrapper-home">
+  <!-- hero -->
+  <div class="bg">
+    <div class="left">
+      <div class="top">
+        <a href="" class="user text-decoration-none">Ghiyan L</a>|<span class="date">10 may 2023</span>
+      </div>
+      <div class="bottom">
+        <h4 class="title">The Real World Cost of the Digital Race for Bitcoin</h4>
+        <p class="excerpt">President Biden said he would meet with lawmakers,including Speaker Kevin McCarty</p>
+      </div>
+    </div>
+    <div class="right">
+
+    </div>
+  </div>
+
+  <!-- Trending news -->
+  <div class="position-relative w-100">
+    <h3 class="trending-title text-center mt-5">Trending news</h3>
+  </div>
+
+  <!-- news -->
+  <div class="container-news">
+    <div class="two-rows">
+      <div class="news">
+        <a href="/detail-news/<%= contentSql1.slug %>"><%= contentSql1.title %></a>
+        <p><%= contentSql1.excerpt %> </p>
+      </div>
+
+      <div class="news">
+        <a  href="/detail-news/<%= contentSql2.slug %>"><%= contentSql1.title %></a>
+        <p><%= contentSql1.excerpt %></p>
+        <div class="publisher">
+          <div class="left">
+            <img src="/img/<%= contentSql2.avatar %>">
+            <span><%= contentSql2.username %></span>
+          </div>
+          <div class="right">
+            <span><%= moment(contentSql2.created_at).format('LL') %></span>
+            <a href="/to-category/<%= contentSql2.kategori %>" class="text-decoration-none"><%= contentSql2.kategori %></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="news">
+      <div class="pic">
+        <img src="/img/<%= contentSql3.gambar %>">
+      </div>
+      <a  href="/detail-news/<%= contentSql3.slug %>"><%= contentSql3.title %></a>
+      <p><%= contentSql3.excerpt %></p>
+      <div class="publisher">
+        <div class="left">
+          <img src="/img/<%= contentSql3.avatar %>">
+          <span><%= contentSql3.username %></span>
+        </div>
+        <div class="right">
+          <span><%= moment(contentSql3.created_at).format('LL') %></span>
+          <a href="/to-category/<%= contentSql3.kategori %>" class="text-decoration-none"><%= contentSql3.kategori %></a>
+        </div>
+      </div>
+    </div>
+    <div class="news">
+      <a  href="/detail-news/<%= contentSql4.slug %>"><%= contentSql4.title %></a>
+      <div class="pic">
+        <img src="/img/<%= contentSql4.gambar %>">
+      </div>
+      <div class="publisher mb-3 mt-3">
+        <div class="left">
+          <img src="/img/<%= contentSql4.avatar %>">
+          <span><%= contentSql4.username %></span>
+        </div>
+        <div class="right">
+          <span><%= moment(contentSql4.created_at).format('LL') %></span>
+          <a href="/to-category/<%= contentSql4.kategori %>" class="text-decoration-none"><%= contentSql4.kategori %></a>
+        </div>
+      </div>
+      <p><%= contentSql4.excerpt %></p>
+      
+    </div>
+</div>
+
+<!-- scroll news -->
+<div class="scroll-news-wrapper mb-5">
+  <div class="scroll-news">
+    <% contents.forEach(function(content) { %>
+    <div class="news">
+      <div class="pic">
+        <img src="./img/<%= content.gambar %>">
+      </div>
+      <a href="/detail-news/<%= content.slug %>"><%= content.title %></a>
+      <p><%= content.excerpt %> </p>
+    </div>
+    <% }); %>
+  </div>
+</div>
+
+<!-- footer -->
+

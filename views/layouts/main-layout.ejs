@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/account.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/post.css">
+    <link rel="stylesheet" href="../css/projects.css">
+    <link rel="stylesheet" href="../css/detail.css">
+    <link rel="stylesheet" href="../css/about.css">
+    <link rel="stylesheet" href="../css/admin.css">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Croissant+One&family=DM+Serif+Display&family=Inter:wght@200;300;400;500;600;700;800;900&family=Lexend+Deca:wght@100;200;300;400;500;600;700;800;900&family=Lexend+Peta:wght@700;800&family=Montserrat:wght@400;500&family=Mulish:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
+    <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
+    <style>
+      trix-toolbar [data-trix-button-group="file-tools"]{
+        display:none; 
+      }
+      trix-editor {
+        height: 400px;
+        overflow-y: scroll;
+      }
+
+    </style>
+  </head>
+
+<body>
+    <section>    
+      <aside>
+        <div class="top">
+          <a href="/dashboard">N<span></span></a>
+        </div>
+        <div class="mid">
+          <a href="/dashboard"><i class="bi bi-grid"></i></a>
+          <a href="/add-kategori"><i class="bi bi-tag"></i></a>
+          <a href="/profil"><i class="bi bi-person"></i></a>
+          <a href="/add-publisher"><i class="bi bi-person-plus-fill"></i></a>
+          <a href="/settings"><i class="bi bi-gear"></i></a>
+        </div>
+        <div class="bottom">
+          <a href="/logout"><i class="bi bi-box-arrow-right"></i></a>
+        </div>
+      </aside> 
+      <main>
+        <%- body %>
+      </main>
+    </section>
+
+    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+<!-- drop file -->
+<script>
+  const dropArea = document.getElementById('drop-area');
+  const fileInput = document.getElementById('file-input');
+  const fileList = document.getElementById('file-list');
+
+  dropArea.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      dropArea.style.borderColor = '#333';
+  });
+
+  dropArea.addEventListener('dragleave', () => {
+      dropArea.style.borderColor = '#ccc';
+  });
+
+  dropArea.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropArea.style.borderColor = '#ccc';
+      const files = e.dataTransfer.files;
+      handleFiles(files);
+  });
+
+  fileInput.addEventListener('change', () => {
+      const files = fileInput.files;
+      handleFiles(files);
+  });
+
+  function handleFiles(files) {
+            fileList.innerHTML = '';
+
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                const listItem = document.createElement('div');
+                listItem.innerHTML = `
+                <i style="font-size:20px;color:#565b5e;margin-right:10px;" class="bi bi-file-zip-fill"></i>
+                 ${file.name}
+                <i style="margin-left:10px;color:#5890ac;" class="bi bi-check-circle-fill"></i>`;
+                fileList.appendChild(listItem);
+            }
+        }
+
+
+  document.addEventListener('trix-file-accept', function(e){
+    e.preventDefault();
+  })
+
+  function displayFileName() {
+  const fileInput = document.getElementById("uploadBtn");
+  const fileLabel = document.getElementById("fileLabel");
+  const selectedFileName = document.getElementById("selectedFileName");
+
+  if (fileInput.files.length > 0) {
+    selectedFileName.textContent =  fileInput.files[0].name;
+  } else {
+    selectedFileName.textContent = "";
+  }
+}
+  function updateFileName(input) {
+      const fileLabel = document.getElementById("fileLabel");
+      const selectedFileName = document.getElementById("selectedFileName");
+  
+      if (input.files.length > 0) {
+          // Update the selected file name
+          selectedFileName.value = input.files[0].name;
+      } else {
+          // Reset the file name if no file is selected
+          selectedFileName.value = "";
+      }
+  }
+
+
+
+
+</script>
+
+</body>
+
+
+</html>

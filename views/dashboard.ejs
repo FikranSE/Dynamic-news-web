@@ -1,0 +1,55 @@
+<div class="wrapper-dashboard">
+  <div class="left">
+    <div class="greet">
+      <h4>Hello <span class="adminName"><%= admin.username %>.</span></h4>
+      <span>It's good to see you again</span>
+    </div>
+    <h4 class="title">Articles</h4>
+    <div class="container-table-admin ">
+      <a href="/publish" class="btn-add mb-2">Add article</a>
+      <ul class="list-scroll">
+        <% content.forEach((content)=> { %>
+        <li>
+          <div class="col col-1" >
+            <img src="/img/<%= content.gambar %>">
+          </div>
+          <div class="col col-2 excerpt" ><%= content.title %></div>
+          <div class="col col-3" ><%= content.kategori %></div>
+          <div class="col col-4 " ><%= moment(content.created_at).format('LL') %></div>
+          <div class="col col-5 " >
+            <a href="" class="btn-view">View</a>
+          </div>
+        </li>
+        <% }); %>
+      </ul>
+    </div>
+  </div>
+  <div class="right">
+  <div class="top">
+    <form action="/search-admin">
+      <div class="group">
+        <button type="submit" class="btn-search-admin">
+          <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><g><path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path></g></svg>
+        </button>
+        <input placeholder="Search" type="search" class="input">
+      </div>
+    </form>
+  </div>
+  <div class="mid">
+    <div class="box">
+      <span>11</span>
+      <span>Articles</span>
+    </div>
+    <div class="box">
+      <span>7</span>
+      <span>Categories</span>
+    </div>
+  </div>
+  <h4 class="title">Categories</h4>
+  <div class="bottom">
+    <% kategori.forEach((kategori)=> { %>
+    <a href=""><%= kategori.kategori %></a>
+    <% }); %>
+  </div>
+  </div>
+</div>

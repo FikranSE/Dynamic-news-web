@@ -1,0 +1,131 @@
+.wrapper-account{
+  width: 100%;
+  min-height:100vh;
+  display: flex;
+  flex-direction: column;
+  padding-bottom:200px;
+}
+
+
+.container-account{
+  width: 100%;
+  height:400px;
+  background-color: #f2f7ff;
+  display: flex;
+  flex-direction:row;
+  gap:35px;
+  justify-content: start;
+  align-items:center;
+  padding-left: 200px;
+  margin-top:0px;
+}
+
+
+.container-account .left .pic{
+  overflow: hidden;
+  width:270px;
+  height:270px;
+  border-radius: 50%;
+}
+
+.container-account .left .pic img{
+  width:100%;
+  transition: .2s;
+}
+
+.container-account .left .pic img:hover{
+  transform: scale(1.5);
+}
+
+.container-account .right .top{
+  width:100%;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  gap:10px;
+  margin-bottom: 10px;
+}
+
+.container-account .right .top span p{
+  margin:0;
+  font-size:12px;
+  font-weight: 600;
+  color:#ef233c;
+}
+
+.container-account .right .top span h5{
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color:#2b2d42;
+  font-family: 'Lexend Deca', sans-serif;
+}
+
+
+.bi-pencil-square{
+  color:#2b2d42;
+  margin-bottom: -5px;
+  font-size: 23px;
+  transition:.2s;
+  cursor: pointer;
+}
+
+.bi-pencil-square:hover{
+  color:#424564;
+}
+
+.container-account .right .about{
+  width:600px;
+  font-size: .875rem;
+  font-weight: 300;
+  line-height: 1.57;
+  font-family: 'Lexend Deca', sans-serif;
+}
+
+.more-project-title{
+  width:100%;
+  height:120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.more-project-title h4{
+  font-size: 32px;
+  font-family: 'Lexend Deca', sans-serif;
+}
+
+.row-user{
+  display: flex;
+  justify-content: flex-start;
+  align-items:center;
+  gap:6px
+}
+
+.row-user span{
+  color:#2b2d42;
+  font-size:14px;
+  font-weight: 600;
+}
+
+.user-projects{
+  width:100%;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+  grid-gap: 40px;
+  margin: 0 auto;
+  place-content: center;
+}
+
+.user-projects .row-user-projects {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+.user-projects .row-user-projects .subtitle{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+
+

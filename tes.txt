@@ -1,0 +1,50 @@
+//layout content
+<div class="wrapper-postingan">
+  <% forms.forEach(form => { %>
+  <div href="/submit-form/<%= form.form_id %>" class="postingan">
+    <i class="bi bi-folder"></i>
+    <a href=""> Dasar - Dasar Pemograman</a>
+  </div>
+  <% }); %>
+</div>
+
+// notifikasi
+<!-- <% if (successMessage) { %>
+  <figure class="notification_success">
+    <div class="notification_body">
+      <i class="bi bi-check-circle notification_icon"></i>
+      Your form has been created &#128640;
+    </div>
+  </figure>
+<% } else if (errorMessage) { %> 
+  <figure class="notification_fail">
+    <div class="notification_body">
+      <i class="bi bi-x-circle notification_icon"></i>
+      Your form failed to be created 
+    </div>
+  </figure>
+<% } %> -->
+
+//Form pencarian
+        <form 
+        style="height:100%;display: flex;
+        flex-direction: row;justify-content: center;
+        gap:5px;align-items: center;margin-right: 30px;"
+        class="form-enroll"
+         action="/enroll" method="post">
+          <input 
+          style="border:1px solid #ccc;
+          outline:none;
+          border-radius:3px;padding:5px 10px;
+          width:90px;font-size:12px;"
+          type="text"
+           name="enroll_key" 
+           placeholder="Enter Code">
+          <button 
+          style=" border:0;
+          background-color: #12CBC4;
+          border-radius:3px;
+          color:#fff;width:60px;font-size:12px;height:29px;"
+          class="btn-enroll" 
+          type="submit">Enroll</button>
+        </form>

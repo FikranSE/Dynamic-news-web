@@ -1,0 +1,32 @@
+<nav>
+  <div class="right">
+    <a href="/logout"><i class="bi bi-power"></i></a>
+  </label>
+  </div>
+</nav>
+<div class="wrapper-detail">
+  <a href="/projects"><i class="bi bi-arrow-left-circle"></i></a>
+  <div class="container-detail">
+    <div class="title">
+      <h4><%= detailContent.title %></h4>
+      <span class="date"><a href="" class="uploader"><%= detailContent.username %></a> on <%= moment(detailContent.created_at).format('LL') %></span>
+    </div>
+    <div class="post-body">
+      <%- detailContent.description %>
+    </div>
+    <div class="uploaded-file-wrapper">
+      <div class="content">
+        <i class="bi bi-file-earmark-text"></i>
+        <span>
+          <%
+          var fileName = detailContent.gambar;
+          var result = fileName.substring(fileName.indexOf('-') + 1);
+          %>
+          <span class="filename"><%= result %></span>
+          <span class="size"><%= fileSizeInKilobytes %></span>
+        </span>
+        <a href="/download/<%= detailContent.admin_id %>/<%= detailContent.id_content %>">Download</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<nav>
+  <div class="right">
+    <a href="/logout"><i class="bi bi-power"></i></a>
+  </label>
+  </div>
+</nav>
+
+<form action="/edit-post" class="form-post" enctype="multipart/form-data" method="post">
+  <h5>Edit Modul or Project</h5>
+  <div class="mb-3">
+    <input type="hidden" class="title" name="id_post" value="<%= dataPostEdit.id_post %>">
+  </div>
+  <div class="mb-3">
+    <input type="text" class="title" name="title" placeholder="Enter title here" value="<%= dataPostEdit.title %>">
+  </div>
+  <div class="mb-3">
+    <input type="text" class="excerpt" name="excerpt" placeholder="Short description (25 words)" value="<%= dataPostEdit.excerpt %>">
+  </div>
+  <div class="mb-3 select-container">
+    <select name="id_categori" class="custom-select" disabled>
+      <option selected value="<%= dataPostEdit.id_categori %>"><%= dataPostEdit.categori %></option>
+      <% categoriData.forEach(function(category) { %>
+        <option value="<%= category.id_categori %>"><%= category.categori %></option>
+      <% }); %>
+    </select> 
+  </div>
+  <div class="mb-3 con-file">
+    <input type="file" name="uploaded_file" id="uploadBtn" onchange="updateFileName(this)" disabled>
+    <label for="uploadBtn" id="fileLabel">Choose file</label>
+    <input type="text" id="selectedFileName" name="uploaded_file" value="<%= dataPostEdit.uploaded_file %>">
+  </div>
+  <input id="body" type="hidden" name="description" value="<%= dataPostEdit.description %>">
+  <trix-editor input="body"></trix-editor>
+  <div class="mt-3 con-btn">
+    <a href="/account" class="btn-cancel">Cancel</a>
+    <button type="submit" class="btn-publish">Publish</button>
+  </div>
+</form>
+
+
+
+
+
